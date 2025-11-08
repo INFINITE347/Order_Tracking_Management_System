@@ -51,49 +51,42 @@ typedef struct {
     char orderstatus[500];
 } order;
 
-🔧 How Each Operation Works
 
-➕ addrecord()
+---
 
-Takes Order ID, Customer Name, Product Name, Location, and Status from the user.
+## 🔧 How Each Operation Works
 
-Opens trackingrecord.txt in append mode ("a").
+### ➕ addrecord()
+- Takes Order ID, Customer Name, Product Name, Location, Order Status.
+- Opens `trackingrecord.txt` in append mode (`"a"`).
+- Adds the record into the file using `fprintf()`.
 
-Adds the record into the file using fprintf().
+### 📄 displayall()
+- Opens the text file in read mode.
+- Reads every record using `fscanf()`.
+- Prints each record on console.
 
-📄 displayall()
+### 🔍 searchbyid()
+- User enters Order ID.
+- Program compares each stored ID using `strcmp()`.
+- Prints matching record.
 
-Opens the text file in read mode ("r").
+### ✏️ updaterecord()
+- Reads all data into an array.
+- Finds required record using matching ID.
+- Allows modifying all values of that record.
+- Rewrites all records back into the text file.
 
-Reads every record using fscanf().
+### ❌ deleterecord()
+- Reads all data into an array.
+- Skips the matched record (deletes it).
+- Rewrites remaining records back into file.
 
-Prints each record on console.
+---
 
-🔍 searchbyid()
+## 📊 Program Flowchart
 
-User enters Order ID.
 
-Program compares each stored ID using strcmp().
-
-Prints the matching record if found, otherwise shows "No Record Found".
-
-✏️ updaterecord()
-
-Reads all data into an array of structures.
-
-Finds the record matching the Order ID.
-
-Updates the values entered by the user.
-
-Opens file in write mode ("w") and rewrites all records.
-
-❌ deleterecord()
-
-Reads all data into an array.
-
-Skips the record matching the Order ID (deletes it).
-
-Rewrites remaining records back into the file.
 
 🚀 How to Run
 Using GCC (Terminal)
