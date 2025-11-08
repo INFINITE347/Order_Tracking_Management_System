@@ -31,8 +31,8 @@ All records remain **saved permanently** even after exiting the program.
 |---------|-------|
 | struct | Store multiple attributes of a record |
 | File Handling (`fopen`, `fclose`, `fprintf`, `fscanf`) | Save and retrieve records from file |
-| strcmp() | Compare Order IDs during search/update/delete |
-| Arrays of Structures | Hold multiple records during update/delete |
+| strcmp() | Compare Order IDs while searching/updating/deleting |
+| Arrays of Structures | Temporarily hold all records during update/delete |
 | switch-case | Menu-based program execution |
 | Functions | Modularize code for readability and reusability |
 | enum | Assign names to menu options |
@@ -51,40 +51,56 @@ typedef struct {
     char orderstatus[500];
 } order;
 
+🔧 How Each Operation Works
+➕ addrecord()
 
----
+Takes Order ID, Customer Name, Product Name, Location, and Status from the user.
 
-## 🔧 How Each Operation Works
+Opens trackingrecord.txt in append mode ("a").
 
-### ➕ addrecord()
-- Takes Order ID, Customer Name, Product Name, Location, Order Status.
-- Opens `trackingrecord.txt` in append mode (`"a"`).
-- Adds the record into the file using `fprintf()`.
+Adds the record into the file using fprintf().
 
-### 📄 displayall()
-- Opens the text file in read mode.
-- Reads every record using `fscanf()`.
-- Prints each record on console.
+📄 displayall()
 
-### 🔍 searchbyid()
-- User enters Order ID.
-- Program compares each stored ID using `strcmp()`.
-- Prints matching record.
+Opens the text file in read mode ("r").
 
-### ✏️ updaterecord()
-- Reads all data into an array.
-- Finds required record using matching ID.
-- Allows modifying all values of that record.
-- Rewrites all records back into the text file.
+Reads every record using fscanf().
 
-### ❌ deleterecord()
-- Reads all data into an array.
-- Skips the matched record (deletes it).
-- Rewrites remaining records back into file.
+Prints each record on console.
 
----
+🔍 searchbyid()
 
-## 📊 Program Flowchart
+User enters Order ID.
+
+Program compares each stored ID using strcmp().
+
+Prints the matching record if found, otherwise shows "No Record Found".
+
+✏️ updaterecord()
+
+Reads all data into an array of structures.
+
+Finds the record matching the Order ID.
+
+Updates the values entered by the user.
+
+Opens file in write mode ("w") and rewrites all records.
+
+❌ deleterecord()
+
+Reads all data into an array.
+
+Skips the record matching the Order ID (deletes it).
+
+Rewrites remaining records back into the file.
+
+🚀 How to Run
+Using GCC (Terminal)
+
+gcc main.c -o ordertracking
+./ordertracking
+
+📊 Program Flowchart
 
                ┌──────────────────────────┐
                │       Start Program       │
@@ -105,16 +121,8 @@ typedef struct {
              Display All      Search by ID    Exit
              (displayall)    (searchbyid)
 
-
-📁 Project Folder Structure
-
-OrderTrackingSystem/
-├─ main.c
-├─ trackingrecord.txt   (auto-generated after first run)
-└─ README.md
-
-
 🔮 Future Enhancements
+
 | Enhancement                 | Benefit                                                 |
 | --------------------------- | ------------------------------------------------------- |
 | Prevent duplicate Order IDs | Data validation and uniqueness                          |
@@ -123,13 +131,9 @@ OrderTrackingSystem/
 | Terminal UI colors          | Improved visuals and user experience                    |
 
 
-## 📄 License
+📄 License
 
-Distributed under the **MIT License**.
+Distributed under the MIT License.
+You are free to use, modify, and distribute with proper credit.
 
----
-
-## ✨ Author
-
-**RADHESH REDDY YARRAM**
 
