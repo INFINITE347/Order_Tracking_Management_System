@@ -42,7 +42,7 @@ All records remain **saved permanently** even after exiting the program.
 
 ## 📂 Data Structure Used
 
-```c
+
 typedef struct {
     char orderID[20];
     char cname[500];
@@ -52,6 +52,7 @@ typedef struct {
 } order;
 
 🔧 How Each Operation Works
+
 ➕ addrecord()
 
 Takes Order ID, Customer Name, Product Name, Location, and Status from the user.
