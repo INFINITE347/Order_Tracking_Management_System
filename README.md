@@ -1,8 +1,5 @@
 # 📦 Order Tracking Management System (C Language)
 
-A C-language based Order Tracking Management System using file handling. Supports add, update, delete, display, and search operations with permanent data storage.
-
-
 ![Language](https://img.shields.io/badge/Language-C-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Status](https://img.shields.io/badge/Project-Active-brightgreen.svg)
