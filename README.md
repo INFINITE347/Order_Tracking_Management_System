@@ -84,17 +84,14 @@ typedef struct {
 
 ---
 
-## 📊 Program Flowchart
 
-
-
-🚀 How to Run
+## 🚀 How to Run
 Using GCC (Terminal)
 
 gcc main.c -o ordertracking
 ./ordertracking
 
-📊 Program Flowchart
+## 📊 Program Flowchart
 
                ┌──────────────────────────┐
                │       Start Program       │
